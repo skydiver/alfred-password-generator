@@ -1,0 +1,8 @@
+{
+  "name": "alfred-password-generator",
+  "version": "1.0.0",
+  "description": "Generate random passwords for Alfred",
+  "author": "Martín M.",
+  "license": "MIT",
+  "main": "main.js"
+}
