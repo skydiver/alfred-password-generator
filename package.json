@@ -4,5 +4,8 @@
   "description": "Generate random passwords for Alfred",
   "author": "Martín M.",
   "license": "MIT",
-  "main": "main.js"
+  "main": "main.js",
+  "dependencies": {
+    "generate-password": "^1.4.1"
+  }
 }
