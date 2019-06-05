@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "main.js",
   "dependencies": {
-    "generate-password": "^1.4.1"
+    "arg": "^4.1.0",
+    "strict-password-generator": "^1.1.2"
   }
 }
