@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "main.js",
   "dependencies": {
+    "alfy": "^0.8.0",
     "arg": "^4.1.0",
     "generate-password": "^1.4.1",
     "strict-password-generator": "^1.1.2"
