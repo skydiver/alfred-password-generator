@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>dev.skydiver.alfred-passwords</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>440A1CD0-7F2E-48F9-89B7-3490AA18331D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>455CFDCB-7A58-44D5-A34F-710228EEF717</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>455CFDCB-7A58-44D5-A34F-710228EEF717</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B3BACE28-4B94-47A6-B338-7C9268A041BF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>B67AA227-8B81-4DD8-B735-E33042D4D3BC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Martín M.</string>
+	<key>description</key>
+	<string>Generate random passwords</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Password Generator</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node main.js $query</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string>main.js</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>455CFDCB-7A58-44D5-A34F-710228EEF717</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>pg</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>[[ '{query}' -gt 64 ]] || [[ '{query}' -lt 4 ]] &amp;&amp; number='64' || number='{query}'
+
+cat &lt;&lt; EOB
+
+{"items": [
+    {
+        "valid": true,
+        "title": "Strong password",
+        "subtitle": "Generate a strong ${number} characters password",
+        "arg": "strong ${number}",
+    },
+    {
+        "valid": true,
+        "title": "Alphanumeric password",
+        "subtitle": "Generate a ${number} alphanumeric password",
+        "arg": "alphanum ${number}",
+    },
+    {
+        "valid": true,
+        "title": "Letters only password",
+        "subtitle": "Generate a ${number} password using only lower and uppercase leters",
+        "arg": "alpha ${number}",
+    },
+    {
+        "valid": true,
+        "title": "Numeric password",
+        "subtitle": "Generate a ${number} numeric password",
+        "arg": "num ${number}",
+    }
+]}
+
+EOB</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string>test.sh</string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>440A1CD0-7F2E-48F9-89B7-3490AA18331D</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>B3BACE28-4B94-47A6-B338-7C9268A041BF</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Password copied to the clipboard</string>
+				<key>title</key>
+				<string>Password Generator</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>B67AA227-8B81-4DD8-B735-E33042D4D3BC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>440A1CD0-7F2E-48F9-89B7-3490AA18331D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>85</integer>
+			<key>ypos</key>
+			<integer>55</integer>
+		</dict>
+		<key>455CFDCB-7A58-44D5-A34F-710228EEF717</key>
+		<dict>
+			<key>xpos</key>
+			<integer>340</integer>
+			<key>ypos</key>
+			<integer>55</integer>
+		</dict>
+		<key>B3BACE28-4B94-47A6-B338-7C9268A041BF</key>
+		<dict>
+			<key>xpos</key>
+			<integer>610</integer>
+			<key>ypos</key>
+			<integer>55</integer>
+		</dict>
+		<key>B67AA227-8B81-4DD8-B735-E33042D4D3BC</key>
+		<dict>
+			<key>xpos</key>
+			<integer>610</integer>
+			<key>ypos</key>
+			<integer>215</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://github.com/skydiver</string>
+</dict>
+</plist>
