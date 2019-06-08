@@ -5,6 +5,10 @@
   "author": "Martín M.",
   "license": "MIT",
   "main": "main.js",
+  "scripts": {
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup"
+  },
   "dependencies": {
     "alfy": "^0.8.0",
     "arg": "^4.1.0",
