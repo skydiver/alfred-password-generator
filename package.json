@@ -1,9 +1,19 @@
 {
   "name": "alfred-password-generator",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Generate random passwords for Alfred",
   "author": "Martín M.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skydiver/alfred-password-generator.git"
+  },
+  "keywords": [
+    "alfred",
+    "alfred-workflow",
+    "password",
+    "password-generator"
+  ],
   "main": "main.js",
   "scripts": {
     "postinstall": "alfy-init",
